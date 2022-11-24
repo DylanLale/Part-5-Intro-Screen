@@ -23,6 +23,8 @@ namespace Part_5__Intro_Screen
         Texture2D tribblegreyTexture;
         Texture2D backgroundTexture;
         Texture2D tribbleIntroTexture;
+        Texture2D GameoverTexture;
+        Rectangle GameoverRect;
         Rectangle tribblegreyRect;
         Vector2 tribblegreySpeed;
         Rectangle tribblebrownRect;
@@ -58,6 +60,7 @@ namespace Part_5__Intro_Screen
             tribblecreamRect = new Rectangle(300, 10, generator.Next(10, 100), generator.Next(10, 100));
             tribbleorangeSpeed = new Vector2(0, 2);
             tribbleorangeRect = new Rectangle(400, 30, generator.Next(10, 100), generator.Next(10, 100));
+            GameoverRect = new Rectangle(0, 0, 800, 500);
             startTime = 0;
             base.Initialize();
             base.Initialize();
@@ -75,6 +78,7 @@ namespace Part_5__Intro_Screen
             tribblegreyTexture = Content.Load<Texture2D>("tribbleGrey");
             tribbleIntroTexture = Content.Load<Texture2D>("tribble_intro");
             backgroundTexture = Content.Load<Texture2D>("space");
+            GameoverTexture = Content.Load<Texture2D>("gameover");
             
         }
 
@@ -164,7 +168,7 @@ namespace Part_5__Intro_Screen
             _spriteBatch.Draw(tribblebrownTexture, tribblebrownRect, Color.White);
             }
             if (seconds >= 15)
-                _spriteBatch.Draw()
+                _spriteBatch.Draw(GameoverTexture, GameoverRect, Color.White);
             
 
             _spriteBatch.End();
