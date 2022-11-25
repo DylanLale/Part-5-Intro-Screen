@@ -13,6 +13,13 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin File.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:File.spritefont;Instruction.spritefont
+
 #begin gameover.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -36,6 +43,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:space.png
+
+#begin Star Trek Theme.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Star Trek Theme.wav
 
 #begin tribble_intro.jpg
 /importer:TextureImporter

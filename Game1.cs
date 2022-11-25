@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Reflection.Emit;
+using System.Threading;
 
 namespace Part_5__Intro_Screen
 {
@@ -15,8 +17,9 @@ namespace Part_5__Intro_Screen
             Intro,
             TribbleYard
         }
+        SoundEffect StarTrekTheme;
         Screen screen;
-        MouseState mouseState;
+        MouseState mouseState; 
         Texture2D tribblebrownTexture;
         Texture2D tribblecreamTexture;
         Texture2D tribbleorangeTexture;
@@ -33,6 +36,7 @@ namespace Part_5__Intro_Screen
         Vector2 tribblecreamSpeed;
         Rectangle tribbleorangeRect;
         Vector2 tribbleorangeSpeed;
+        SpriteFont Instruction;
         float seconds;
         float startTime;
         Random generator = new Random();
@@ -79,7 +83,8 @@ namespace Part_5__Intro_Screen
             tribbleIntroTexture = Content.Load<Texture2D>("tribble_intro");
             backgroundTexture = Content.Load<Texture2D>("space");
             GameoverTexture = Content.Load<Texture2D>("gameover");
-            
+            StarTrekTheme = Content.Load<SoundEffect>("Star Trek Theme");
+            Instruction = Content.Load<SpriteFont>("Instruction");
         }
 
         protected override void Update(GameTime gameTime)
@@ -158,6 +163,8 @@ namespace Part_5__Intro_Screen
             if (screen == Screen.Intro)
             {
                 _spriteBatch.Draw(tribbleIntroTexture, new Rectangle(0, 0, 800, 500), Color.White);
+                _spriteBatch.DrawString(Instruction, "Press left click to enter tribble field", new Vector2(175, 350), Color.White);
+                StarTrekTheme.Play();
             }
             else if (screen == Screen.TribbleYard)
             {
